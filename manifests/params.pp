@@ -65,6 +65,8 @@ class metricbeat::params {
       }
       $tmp_dir        = '/tmp'
       $url_arch       = undef
+      $owner          = 'root'
+      $group          = 'root'
     }
     'Windows': {
       $config_dir      = 'C:/Program Files/Metricbeat'
@@ -93,6 +95,8 @@ class metricbeat::params {
         'x64'   => 'x86_64',
         default => fail("${::architecture} is not supported by metricbeat."),
       }
+      $owner          = 'BUILTIN\Administrators'
+      $group          = 'None'
     }
     default: {
       fail("${::kernel} is not supported by metricbeat.")

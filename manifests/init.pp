@@ -188,6 +188,8 @@ class metricbeat(
   Optional[String] $url_arch                                          = $metricbeat::params::url_arch,
   Optional[Hash] $xpack                                               = $metricbeat::params::xpack,
   Optional[Variant[Stdlib::HTTPUrl, Stdlib::HTTPSUrl]] $yum_repo_url  = $metricbeat::params::yum_repo_url,
+  String $owner                                                       = $metricbeat::params::owner,
+  Optional[String] $group                                             = $metricbeat::params::group,
 ) inherits metricbeat::params {
 
   $real_download_url = $download_url ? {

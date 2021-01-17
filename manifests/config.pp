@@ -95,8 +95,8 @@ class metricbeat::config inherits metricbeat {
       file{'metricbeat.yml':
         ensure       => $metricbeat::ensure,
         path         => "${metricbeat::config_dir}/metricbeat.yml",
-        owner        => 'root',
-        group        => 'root',
+        owner        => $owner,
+        group        => $group,
         mode         => $metricbeat::config_mode,
         content      => inline_template('<%= @metricbeat_config.to_yaml() %>'),
         validate_cmd => $validate_cmd,
